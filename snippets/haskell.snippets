@@ -1,0 +1,78 @@
+snippet imp "import module"
+	import ${1}
+
+snippet mds "module where"
+	module ${1:ModName} (
+		${2}
+	) where
+
+snippet md "module"
+	module ${1:ModName} where
+
+snippet fc "only return"
+	${1:Name} :: ${2:return}
+	$1 = ${3:}
+
+snippet func "func"
+	${1:Name} :: ${2:Arg} -> ${3:return}
+	$1 ${4:Args} = ${5}
+
+snippet fuc "func type"
+	${1:Name} :: (${2:Type} ${3:a}) => $3 -> $3)
+	$1 ${4:Args} = ${5}
+
+snippet pair "a pair type"
+	(${1:first}, ${2:second})
+
+snippet tree "a tree value tuple"
+	(${1:a}, ${2:b}, ${3:c})
+
+snippet four "a four value tuple"
+	(${1:a}, ${2:b}, ${3:c}, ${4:d})
+
+snippet five "a five value tuple"
+	(${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e})
+
+snippet six "a six value tuple"
+	(${1:a}, ${2:b}, ${3:c}, ${4:d}, ${5:e}, ${6:f})
+
+snippet mm "module main"
+	module Main where
+
+	main :: IO ()
+	main = do
+		${1:body}
+
+snippet main "main"
+	main :: IO ()
+	main = ${1}
+
+snippet ty "type set"
+	type ${1:name} = ${2:type}
+
+snippet read "read type"
+	read ${1:a} :: ${2:type}
+
+snippet =
+	${1} = ${2}
+
+snippet : "Type"
+	:: ${1:Type}
+
+snippet dder "data type deriving"
+	data ${1:name} = $1 ${2:type} deriving (${3:class})
+
+snippet dd "data type"
+	data ${1:name} = ${2:type}
+
+snippet dds "datas type"
+	data ${1:name} = $1 
+		{${2}}
+snippet exp "expand"
+	{-# ${1} #-}
+
+snippet newt "newtype"
+	newtype ${1:name} = ${2}
+
+snippet impq "import qualified"
+	import qualified ${1} as ${2}
