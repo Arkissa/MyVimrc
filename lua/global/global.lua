@@ -30,6 +30,10 @@ G = {
             lsp = "clangd",
             comm = "//"
         },
+        h = {
+            lsp = "clangd",
+            comm = "//"
+        },
         json = {
             lsp = "jsonls",
             comm = "//"

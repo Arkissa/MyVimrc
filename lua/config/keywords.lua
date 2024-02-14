@@ -39,17 +39,17 @@ local setkeymap = {
     { "v", "<",         "<gv",                              opt },
     { "v", "p",         '"_dP',                             opt },
     { "n", "sD",        ":bd!<CR>",                         opt },
+    { "i", "(",         "()<ESC>i",                         opt },
+    { "i", "[",         "[]<ESC>i",                         opt },
+    { "i", "{",         "{}<ESC>i",                         opt },
+    { "i", "\"",        [[""<ESC>i]],                       opt },
+    { "i", "'",         [[''<ESC>i]],                       opt },
     --{ "n", "sy",         ":OpenClip<CR>",                    opt },
     --{ "n", "sP",         ":PastUpload<CR>",                  opt },
     --{ "n", "sp",         ":PastImage<CR>",                   opt },
     --{ "i", ",y",         "<ESC>:OpenClip<CR>",               opt },
     --{ "i", ",p",         "<ESC>:PastImage<CR>i",             opt },
     --{ "i", ",P",         "<ESC>:PastUpload<CR>i",            opt },
-    { "i", "(",         "()<ESC>i",                         opt },
-    { "i", "[",         "[]<ESC>i",                         opt },
-    { "i", "{",         "{}<ESC>i",                         opt },
-    { "i", "\"",        [[""<ESC>i]],                       opt },
-    { "i", "'",         [[''<ESC>i]],                       opt },
 }
 
 for i = 1, #setkeymap do keymap(unpack(setkeymap[i])) end

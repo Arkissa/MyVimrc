@@ -1,8 +1,8 @@
 return {
     setup = function(config)
-        config.on_attach(function(client, bufnr)
-            config.buffer_autoformat()
-        end)
+        -- config.on_attach(function(client, bufnr)
+        --     config.buffer_autoformat()
+        -- end)
 
         config.skip_server_setup({ 'hls' })
         config.setup()
