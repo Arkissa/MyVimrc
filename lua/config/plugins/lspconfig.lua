@@ -46,11 +46,12 @@ return {
     {
         'weilbith/nvim-code-action-menu',
         cmd = 'CodeActionMenu',
+        ft = { "go", "gomod", "haskell", "rust", "lua", "java", "sh", "json", "python", "c", "cpp", "h" },
     },
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        ft = { "go", "gomod", "haskell", "rust", "lua", "java", "sh", "json", "python", "c", "cpp" },
+        branch = 'v3.x',
+        ft = { "go", "gomod", "haskell", "rust", "lua", "java", "sh", "json", "python", "c", "cpp", "h" },
         dependencies = {
             {
                 "ray-x/lsp_signature.nvim",
@@ -85,25 +86,9 @@ return {
                         build = function()
                             vim.cmd([[MasonInstall]])
                         end,
-                        config = function()
-                            require("mason").setup({
-                                ui = {
-                                    icons = {
-                                        package_installed = "✓",
-                                        package_pending = "➜",
-                                        package_uninstalled = "✗"
-                                    }
-                                }
-                            })
-                        end
                     },
                     {
                         'williamboman/mason-lspconfig.nvim',
-                        config = function()
-                            require("mason-lspconfig").setup({
-                                automatic_installation = true,
-                            })
-                        end
                     },
                     {
                         "folke/neodev.nvim",
@@ -130,29 +115,48 @@ return {
                     }
                 },
             },
+            {
+                'stevearc/conform.nvim',
+                ft = 'python'
+            },
         },
         config = function()
-            --local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require "lsp-zero".preset {}
             lspconfig.set_server_config({
                 on_init = function(client)
                     client.server_capabilities.semanticTokensProvider = nil
                 end,
             })
-            lspconfig.ensure_installed({
-                "lua_ls",
-                "gopls",
-                "jsonls",
-                "pyright",
-                "clangd",
-                "bashls",
-            })
+            require "mason".setup {
+                ui = {
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗"
+                    }
+                }
+            }
 
-            config()
-            local ok, lsp = pcall(require, "config.language." .. G.fileType)
-            if not ok then return end
-            lsp.setup(lspconfig)
-            require "config.plugins.cmp".setup()
+            require "mason-lspconfig".setup {
+                automatic_installation = true,
+                ensure_installed = {
+                    "lua_ls",
+                    "gopls",
+                    "jsonls",
+                    "clangd",
+                    "bashls",
+                },
+                handlers = {
+                    lspconfig.default_setup,
+                    [G.lsp] = function()
+                        config()
+                        local ok, lsp = pcall(require, "config.language." .. G.file_type)
+                        if not ok then return end
+                        lsp.setup(lspconfig)
+                        C.setup()
+                    end
+                }
+            }
         end
     },
 }

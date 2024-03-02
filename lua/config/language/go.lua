@@ -13,7 +13,7 @@ return {
             lsp_defaults.capabilities,
             require('cmp_nvim_lsp').default_capabilities()
         )
-        lspconfig[G.lang.lsp].setup {
+        lspconfig.gopls.setup {
             settings = {
                 gopls = {
                     experimentalPostfixCompletions = true,

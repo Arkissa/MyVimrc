@@ -6,7 +6,7 @@ return {
             local status_ok, configs = pcall(require, "nvim-treesitter.configs")
             if not status_ok then return end
 
-            configs.setup({
+            configs.setup {
                 ensure_installed = {
                     "python",
                     "go",
@@ -22,6 +22,7 @@ return {
                     "proto",
                     "html",
                     "sql",
+                    "agda",
                     "haskell",
                     "haskell_persistent",
                     "java",
@@ -47,9 +48,9 @@ return {
                         scope_incremental = '<TAB>'
                     }
                 },
-            })
+            }
 
-            local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+            --local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
         end
     },
 }

@@ -37,6 +37,8 @@ O.addOpt = function(option)
     for i = 1, #option do vim[option[i][1]][option[i][2]] = option[i][3] end
 end
 
+vim.g.python3_host_prog = "python"
+vim.loader.enable()
 vim.opt.shortmess:append "c"
 vim.g.mapleader = " "
 vim.cmd.filetype = { "on", indent = "on", plugin = "on" }

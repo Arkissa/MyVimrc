@@ -8,7 +8,8 @@ local check_backspace = function()
         :match "%s"
 end
 
-return {
+
+C = {
     'hrsh7th/nvim-cmp',
     dependencies = {
         'dcampos/nvim-snippy',
@@ -19,6 +20,10 @@ return {
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-nvim-lua',
+        {
+            'Arkissa/cmp-agda-symbols',
+            ft = "agda"
+        },
     },
     setup = function()
         local status_ok, cmp = pcall(require, "cmp")
@@ -40,7 +45,7 @@ return {
             },
         })
 
-        cmp.setup({
+        cmp.setup {
             snippet = {
                 expand = function(args)
                     require 'snippy'.expand_snippet(args.body)
@@ -76,7 +81,7 @@ return {
                 { name = 'nvim_lsp' },
                 { name = 'nvim_lua' },
                 { name = 'buffer' },
-                { name = 'path' }
+                { name = 'path' },
             }),
             formatting = {
                 fields = { "kind", "abbr", "menu" },
@@ -104,7 +109,7 @@ return {
             experimental = {
                 ghost_text = true,
             },
-        })
+        }
         cmp.setup.cmdline('/', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
@@ -124,5 +129,14 @@ return {
                 }
             })
         })
+        cmp.setup.filetype(
+            { "agda", "haskell" },
+            {
+                sources = {
+                    { name = 'agda-symbols' },
+                }
+            })
     end
 }
+
+return C

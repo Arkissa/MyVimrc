@@ -16,7 +16,7 @@ return {
             lsp_defaults.capabilities,
             require('cmp_nvim_lsp').default_capabilities()
         )
-        lspconfig[G.lang.lsp].setup(config.nvim_lua_ls())
+        lspconfig.lua_ls.setup(config.nvim_lua_ls())
         config.setup()
     end
 }

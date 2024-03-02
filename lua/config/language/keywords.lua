@@ -19,8 +19,8 @@ return {
             -- { "n", "<C-/>",     ":Comm<CR>",                                      opts },
             -- { "v", "<C-/>",     ":Comm<CR>",                                      opts },
             { "n", "sG",        "<cmd>Lspsaga term_toggle<CR>",                    opts },
+            { "n", "<A-r>",     "<cmd>nohlsearch <CR>",                            opts },
         }
-
 
         for _, value in pairs(map) do keymap(bufnr, unpack(value)) end
         local status_ok, illuminate = pcall(require, "illuminate")

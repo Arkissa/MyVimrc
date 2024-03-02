@@ -1,8 +1,9 @@
 return {
     {
         "lewis6991/gitsigns.nvim",
+        lazy = false,
         config = function()
-            require('gitsigns').setup({
+            require 'gitsigns'.setup {
                 signs = {
                     add          = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
                     change       = {
@@ -62,17 +63,8 @@ return {
                     map('n', '<leader>tb', gs.toggle_current_line_blame)
                     map('n', '<leader>ud', gs.diffthis)
                 end
-            })
+            }
         end
 
-    },
-    {
-        "kdheepak/lazygit.nvim",
-        keys = { { "sg", ":LazyGit<CR>", noremap = true, silent = true } },
-        config = function()
-            vim.g.lazygit_floating_window_scaling_factor = 1.0
-            vim.g.lazygit_floating_window_winblend = 0
-            vim.g.lazygit_use_neovim_remote = true
-        end
     },
 }

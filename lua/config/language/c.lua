@@ -12,7 +12,7 @@ return {
             lsp_defaults.capabilities,
             require('cmp_nvim_lsp').default_capabilities()
         )
-        lspconfig[G.lang.lsp].setup({
+        lspconfig.clangd.setup({
             init_options = {
                 fallbackFlags = { "-x", "c" },
             },

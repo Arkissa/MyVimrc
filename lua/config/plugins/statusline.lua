@@ -1,7 +1,8 @@
 return {
     "nvim-lualine/lualine.nvim",
+    lazy = false,
     config = function()
-        local lualine = require('lualine')
+        local lualine = require 'lualine'
         local colors = {
             bg       = '#24273A',
             fg       = '#bbc2cf',
@@ -151,7 +152,7 @@ return {
                 local clients = vim.lsp.get_active_clients()
                 for _, client in ipairs(clients) do
                     local filetypes = client.config.filetypes
-                    if filetypes and vim.fn.index(filetypes, G.fileType) ~= -1 then
+                    if filetypes and vim.fn.index(filetypes, G.file_type) ~= -1 then
                         return client.name
                     end
                 end

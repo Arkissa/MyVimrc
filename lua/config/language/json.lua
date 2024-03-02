@@ -13,8 +13,7 @@ return {
             require('cmp_nvim_lsp').default_capabilities()
         )
         lsp_defaults.capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-        lspconfig[G.lang.lsp].setup {}
+        lspconfig.jsonls.setup {}
         config.setup()
     end
 }

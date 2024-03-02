@@ -2,7 +2,7 @@ return {
     "jiaoshijie/undotree",
     event = { "BufNewFile", "BufRead" },
     config = function()
-        require('undotree').setup()
+        require 'undotree'.setup()
         if vim.fn.has("presistent_undo") then
             local target_path = vim.fn.expand('~/.config/nvim/.undodir')
             if vim.fn.isdirectory(target_path) then
@@ -11,8 +11,7 @@ return {
             end
 
             vim.o.undodir = target_path
-            -- vim.cmd "set undodir"
-            vim.cmd("set undofile")
+            vim.cmd "set undofile"
         end
 
         K.addKeymap({

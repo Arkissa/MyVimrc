@@ -7,7 +7,7 @@ return {
         config.skip_server_setup({ 'hls' })
         config.setup()
         vim.g.haskell_tools = {
-            capabilities = require('lsp-zero').build_options('hls', {}).capabilities,
+            capabilities = require 'lsp-zero'.build_options('hls', {}).capabilities,
             tools = {
                 hover = {
                     stylize_markdown = true,
@@ -29,33 +29,6 @@ return {
                     )
                 end,
             },
-            settings = {
-                haskell = {
-                    plugin = {
-                        class = { -- missing class methods
-                            codeLensOn = true,
-                        },
-                        importLens = { -- make import lists fully explicit
-                            codeLensOn = true,
-                        },
-                        refineImports = { -- refine imports
-                            codeLensOn = true,
-                        },
-                        tactics = { -- wingman
-                            codeLensOn = true,
-                        },
-                        moduleName = { -- fix module names
-                            globalOn = true,
-                        },
-                        eval = { -- evaluate code snippets
-                            globalOn = true,
-                        },
-                        ['ghcide-type-lenses'] = { -- show/add missing type signatures
-                            globalOn = true,
-                        },
-                    }
-                }
-            }
         }
         require('haskell-tools').lsp.start()
     end

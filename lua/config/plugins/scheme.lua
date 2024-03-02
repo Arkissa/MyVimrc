@@ -1,7 +1,8 @@
 return {
     "catppuccin/nvim",
+    lazy = false,
     config = function()
-        require("catppuccin").setup({
+        require "catppuccin".setup {
             flavour = "macchiato",      -- latte, frappe, macchiato, mocha
             transparent_background = false,
             show_end_of_buffer = false, -- show the '~' characters after the end of buffers
@@ -35,7 +36,7 @@ return {
                 neotree = true,
                 illuminate = true,
             },
-        })
+        }
         vim.cmd.colorscheme "catppuccin"
     end
 }

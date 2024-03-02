@@ -15,4 +15,9 @@ K.addKeymap({
     { "n", "<leader>pl", ":Lazy<CR>", { noremap = true, silent = true } }
 })
 
-require("lazy").setup(G:load(G.vimrc .. "/lua/config/plugins", "config.plugins"), {})
+
+require "lazy".setup(G:load(G.vimrc .. "/lua/config/plugins", "config.plugins"), {
+    defaults = {
+        lazy = true
+    }
+})
