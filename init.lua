@@ -1,2 +1,1 @@
-G = require "global.global"
-G:load(G.vimrc .. "/lua/config", "config")
+require "global.global":load(G.vimrc .. "/lua/config", "config")
