@@ -1,30 +1,62 @@
-vim.keymap({ mod = { "n", "v", "x" }, k = ";", v = ":", opt = {} }
-, { k = "s", v = "<nop>", }
-, { k = "S", v = ":w<CR>", }
-, { k = "Q", v = ":q<CR>", }
-, { k = "<A-s>k", v = ":e $MYVIMRC<CR>", }
-, { k = "sr", v = ":source $MYVIMRC<CR>", }
-, { k = "sh", v = ":set nosplitright<CR>:vsplit<CR>", }
-, { k = "sk", v = ":set splitright<CR>:split<CR>", }
-, { k = "sj", v = ":set nosplitright<CR>:split<CR>", }
-, { k = "st", v = ":tabe<CR>", }
-, { k = "si", v = ":+tabnext<CR>", }
-, { k = "su", v = ":-tabnext<CR>", }
-, { k = "<SPACE>q", v = ":qa<CR>", }
-, { k = "<SPACE>j", v = "<C-w>j", }
-, { k = "<SPACE>k", v = "<C-w>k", }
-, { k = "<SPACE>h", v = "<C-w>h", }
-, { k = "<SPACE>l", v = "<C-w>l", }
-, { k = "<SPACE>sp", v = ":set spell!<CR>", }
-, { k = "<Up>", v = ":res +5<CR>", }
-, { k = "<Down>", v = ":res -5<CR>", }
-, { k = "<Left>", v = ":vertical resize+5<CR>", }
-, { k = "<Right>", v = ":vertical resize-5<CR>", }
-, { mod = "v", k = "<C-c>", v = [["+y]] }
-, { k = "<C-p>", v = [["+p]], }
-, { k = "<C-p>", v = "<C-r>+", }
-, { k = ">", v = ">gv", }
-, { k = "<", v = "<gv", }
-, { mod = "v", k = "p", v = '"_dP' }
-, { k = "sD", v = ":bd!<CR>", }
-)
+K = {}
+
+local keymap = vim.keymap.set
+local opt = { silent = true, nowait = true }
+local map = { "n", "v", "x" }
+local setkeymap = {
+    { map, ";",         ":",                                nil },
+    { "n", "s",         "<nop>",                            opt },
+    { "n", "S",         ":w<CR>",                           opt },
+    { "n", "Q",         ":q<CR>",                           opt },
+    { "n", "<A-s>k",    ":e $MYVIMRC<CR>",                  opt },
+    { "n", "sr",        ":source $MYVIMRC<CR>",             opt },
+    { "n", "sh",        ":set nosplitright<CR>:vsplit<CR>", opt },
+    { "n", "sk",        ":set splitright<CR>:split<CR>",    opt },
+    { "n", "sj",        ":set nosplitright<CR>:split<CR>",  opt },
+    { "n", "st",        ":tabe<CR>",                        opt },
+    { "n", "si",        ":+tabnext<CR>",                    opt },
+    { "n", "su",        ":-tabnext<CR>",                    opt },
+    { "n", "<SPACE>q",  ":qa<CR>",                          opt },
+    { "n", "<SPACE>j",  "<C-w>j",                           opt },
+    { "n", "<SPACE>k",  "<C-w>k",                           opt },
+    { "n", "<SPACE>h",  "<C-w>h",                           opt },
+    { "n", "<SPACE>l",  "<C-w>l",                           opt },
+    { "n", "<SPACE>sp", ":set spell!<CR>",                  opt },
+    { "n", "<Up>",      ":res +5<CR>",                      opt },
+    { "n", "<Down>",    ":res -5<CR>",                      opt },
+    { "n", "<Left>",    ":vertical resize+5<CR>",           opt },
+    { "n", "<Right>",   ":vertical resize-5<CR>",           opt },
+    { "v", "<C-c>",     [["+y]],                            opt },
+    { "n", "<C-p>",     [["+p]],                            opt },
+    { "i", "<C-p>",     "<C-r>+",                           opt },
+    { "v", ">",         ">gv",                              opt },
+    { "v", "<",         "<gv",                              opt },
+    { "v", "p",         '"_dP',                             opt },
+    { "n", "sD",        ":bd!<CR>",                         opt },
+    -- { "n", "s,",        "<CMD>lua G.wordWrap('<')<CR>",     opt },
+    -- { "n", "s'",        "<CMD>lua G.wordWrap('\\'')<CR>",   opt },
+    -- { "n", "s\"",       "<CMD>lua G.wordWrap('\"')<CR>",    opt },
+    -- { "n", "s(",        "<CMD>lua G.wordWrap('(')<CR>",     opt },
+    -- { "n", "s[",        "<CMD>lua G.wordWrap('[')<CR>",     opt },
+    -- { "n", "s{",        "<CMD>lua G.wordWrap('{')<CR>",     opt },
+    -- { "i", "(",         "()<ESC>i",                         opt },
+    -- { "i", "[",         "[]<ESC>i",                         opt },
+    -- { "i", "{",         "{}<ESC>i",                         opt },
+    -- { "i", "\"",        [[""<ESC>i]],                       opt },
+    -- { "i", "'",         [[''<ESC>i]],                       opt },
+    --{ "n", "sy",         ":OpenClip<CR>",                    opt },
+    --{ "n", "sP",         ":PastUpload<CR>",                  opt },
+    --{ "n", "sp",         ":PastImage<CR>",                   opt },
+    --{ "i", ",y",         "<ESC>:OpenClip<CR>",               opt },
+    --{ "i", ",p",         "<ESC>:PastImage<CR>i",             opt },
+    --{ "i", ",P",         "<ESC>:PastUpload<CR>i",            opt },
+}
+
+for i = 1, #setkeymap do keymap(unpack(setkeymap[i])) end
+K.addKeymap = function(add)
+    if not add then return end
+
+    for i = 1, #add do keymap(unpack(add[i])) end
+end
+
+return K
