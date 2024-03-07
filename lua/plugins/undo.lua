@@ -14,8 +14,6 @@ return {
             vim.cmd "set undofile"
         end
 
-        K.addKeymap({
-            { "n", "<LEADER>uu", ":lua require('undotree').toggle()<CR>", { silent = true } }
-        })
+        vim.keymap { k = "<LEADER>uu", v = ":lua require('undotree').toggle()<CR>", opt = { silent = true } }
     end
 }
