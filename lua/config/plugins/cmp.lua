@@ -1,4 +1,15 @@
-return {
+local check_backspace = function()
+    local col = vim.fn.col "." - 1
+    return col == 0 or
+        vim
+        .fn
+        .getline(".")
+        :sub(col, col)
+        :match "%s"
+end
+
+
+C = {
     'hrsh7th/nvim-cmp',
     dependencies = {
         'dcampos/nvim-snippy',
@@ -9,28 +20,19 @@ return {
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-nvim-lua',
-        'Arkissa/cmp-agda-symbols',
+        {
+            'Arkissa/cmp-agda-symbols',
+            ft = "agda"
+        },
     },
-    event = "InsertEnter",
-    config = function()
-        local check_backspace = function()
-            local col = vim.fn.col "." - 1
-            return col == 0 or
-                vim
-                .fn
-                .getline(".")
-                :sub(col, col)
-                :match "%s"
-        end
-
-
+    setup = function()
         local status_ok, cmp = pcall(require, "cmp")
         if not status_ok then return end
 
         local snippy_ok, snippy = pcall(require, 'snippy')
         if not snippy_ok then return end
-        snippy.setup {
-            snippet_dirs = _G.ENV.vimrc .. "/snippets",
+        snippy.setup({
+            snippet_dirs = G.vimrc .. "/snippets",
             local_snippet_dir = '.snippets',
             mappings = {
                 is = {
@@ -41,58 +43,7 @@ return {
                     ['<leader>x'] = 'cut_text',
                 },
             },
-        }
-
-        local icon = {
-            ---@type string
-            Text = "",
-            ---@type string
-            Method = "󰆧",
-            ---@type string
-            Function = "󰊕",
-            ---@type string
-            Constructor = "",
-            ---@type string
-            Field = "󰇽", ---@type string
-            Variable = "󰂡",
-            ---@type string
-            Class = "󰠱",
-            Interface = "",
-            ---@type string
-            Module = "",
-            ---@type string
-            Property = "󰜢",
-            ---@type string
-            Unit = "",
-            ---@type string
-            Value = "󰎠",
-            ---@type string
-            Enum = "",
-            ---@type string
-            Keyword = "󰌋",
-            ---@type string
-            Snippet = "",
-            ---@type string
-            Color = "󰏘",
-            ---@type string
-            File = "󰈙",
-            ---@type string
-            Reference = "",
-            ---@type string
-            Folder = "󰉋",
-            ---@type string
-            EnumMember = "",
-            ---@type string
-            Constant = "󰏿",
-            ---@type string
-            Struct = "",
-            ---@type string
-            Event = "",
-            ---@type string
-            Operator = "󰆕",
-            ---@type string
-            TypeParameter = "󰅲",
-        }
+        })
 
         cmp.setup {
             snippet = {
@@ -137,7 +88,7 @@ return {
                 maxwidth = 60,
                 maxheight = 10,
                 format = function(entry, vim_item)
-                    vim_item.kind = icon[vim_item.kind]
+                    vim_item.kind = G.icon[vim_item.kind]
                     vim_item.menu = ({
                         snippy = "[Snip]",
                         nvim_lsp = "[LSP]",
@@ -167,7 +118,9 @@ return {
         })
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({ { name = 'path' } }, {
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
                 {
                     name = 'cmdline',
                     option = {
@@ -176,10 +129,14 @@ return {
                 }
             })
         })
-        cmp.setup.filetype({ "agda", "haskell" }, {
-            sources = {
-                { name = 'agda-symbols' },
-            }
-        })
+        cmp.setup.filetype(
+            { "agda", "haskell" },
+            {
+                sources = {
+                    { name = 'agda-symbols' },
+                }
+            })
     end
 }
+
+return C

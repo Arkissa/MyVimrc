@@ -73,7 +73,7 @@ return {
             function()
                 return '▊'
             end,
-            color = { fg = colors.blue }, -- Sets highlighting of component
+            color = { fg = colors.blue },      -- Sets highlighting of component
             padding = { left = 0, right = 1 }, -- We don't need space before this
         }
 
@@ -152,12 +152,12 @@ return {
                 local clients = vim.lsp.get_active_clients()
                 for _, client in ipairs(clients) do
                     local filetypes = client.config.filetypes
-                    if filetypes and vim.fn.index(filetypes, _G.ENV.filetype) ~= -1 then
+                    if filetypes and vim.fn.index(filetypes, G.file_type) ~= -1 then
                         return client.name
                     end
                 end
 
-                return "None"
+                return G.lang.lsp
             end,
             icon = ' LSP:',
             color = { fg = colors.blue, gui = 'bold' },
@@ -165,7 +165,7 @@ return {
 
         -- Add components to right sections
         ins_right {
-            'o:encoding', -- option component same as &encoding in viml
+            'o:encoding',       -- option component same as &encoding in viml
             fmt = string.upper, -- I'm not sure why it's upper case either ;)
             cond = conditions.hide_in_width,
             color = { fg = colors.blue, gui = 'bold' },
@@ -206,5 +206,5 @@ return {
 
         -- Now don't forget to initialize lualine
         lualine.setup(config)
-    end
+    end,
 }

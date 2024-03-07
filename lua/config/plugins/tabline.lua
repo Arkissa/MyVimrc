@@ -2,7 +2,6 @@ return {
     'akinsho/bufferline.nvim',
     lazy = false,
     version = "*",
-
     opts = {
         options = {
             mode = "tabs",
