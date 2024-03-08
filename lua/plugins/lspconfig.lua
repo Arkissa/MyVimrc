@@ -1,10 +1,14 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
+    ft = { "go", "gomod", "json", "python", "c", "cpp", "h", "lua" },
     dependencies = {
-        {
-            'stevearc/conform.nvim',
-        },
+        "neovim/nvim-lspconfig",
+        "RRethy/vim-illuminate",
+        "glepnir/lspsaga.nvim",
+        'williamboman/mason-lspconfig.nvim',
+        "folke/neodev.nvim",
+        'stevearc/conform.nvim',
         {
             "ray-x/lsp_signature.nvim",
             opts = {
@@ -12,17 +16,10 @@ return {
             },
         },
         {
-            "neovim/nvim-lspconfig",
-            "RRethy/vim-illuminate",
-            "glepnir/lspsaga.nvim",
-            'williamboman/mason-lspconfig.nvim',
-            "folke/neodev.nvim",
-            {
-                'williamboman/mason.nvim',
-                build = function()
-                    vim.cmd [[MasonInstall]]
-                end,
-            },
+            'williamboman/mason.nvim',
+            build = function()
+                vim.cmd [[MasonInstall]]
+            end,
         },
         {
             'j-hui/fidget.nvim',
@@ -42,5 +39,4 @@ return {
             },
         },
     },
-    --ft = { "go", "gomod", "haskell", "rust", "java", "sh", "json", "python", "c", "cpp", "h" },
 }

@@ -30,7 +30,7 @@ return {
         local snippy_ok, snippy = pcall(require, 'snippy')
         if not snippy_ok then return end
         snippy.setup {
-            snippet_dirs = _G.ENV.vimrc .. "/snippets",
+            snippet_dirs = vim.g.vimrc .. "/snippets",
             local_snippet_dir = '.snippets',
             mappings = {
                 is = {
