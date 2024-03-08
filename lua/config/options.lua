@@ -1,5 +1,29 @@
+---@type fun(...: string[])
+local sign = function(...)
+    for _, opt in ipairs({ ... }) do
+        vim.fn.sign_define(opt[1], {
+            texthl = opt[1],
+            text = opt[2],
+            numhl = '',
+        })
+    end
+end
+
+---@type fun(...: string[])
+local handlers = function(...)
+    for _, method in ipairs({ ... }) do
+        vim.lsp.handlers[method[1]] = vim.lsp.with(
+            vim.lsp.handlers[method[2]],
+            {
+                border = "rounded",
+            }
+        )
+    end
+end
+
 vim.opt {
     number = true,
+    cindent = true,
     tabstop = 4,
     shiftwidth = 4,
     tw = 0,
@@ -45,33 +69,46 @@ vim.g {
     loaded_netrw = 1,
     loaded_netrwPlugin = 1,
     loaded_netrwSettings = 1,
-    loaded_netrwFileHandlers = 1
+    loaded_netrwFileHandlers = 1,
+    --@type string[]
+    lsps = {
+        "lua_ls",
+        "gopls",
+        "jsonls",
+        "pylsp",
+        "clangd",
+        "bashls",
+    },
+    ---@type string
+    vimrc = vim.fn.stdpath("config"),
+    --@type string[]
+    syntax = {
+        "python",
+        "go",
+        "c",
+        "lua",
+        "cpp",
+        "bash",
+        "json",
+        "regex",
+        "toml",
+        "vim",
+        "yaml",
+        "proto",
+        "html",
+        "sql",
+        "agda",
+        "haskell",
+        "haskell_persistent",
+        "fennel",
+        "java",
+        "markdown",
+        "markdown_inline",
+    }
 }
 
-
-vim.cmd [[
-augroup filetypedetect
-    au! BufRead,BufNewFile *.h         setfiletype c
-augroup END
-]]
-vim.cmd [[set cindent]]
-vim.cmd [[au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-
-vim.loader.enable()
 vim.opt.shortmess:append "c"
 vim.cmd.filetype('plugin', 'indent', 'on')
-local sign = function(opts)
-    vim.fn.sign_define(opts[1], {
-        texthl = opts[1],
-        text = opts[2],
-        numhl = '',
-    })
-end
-
-sign { "DiagnosticSignError", "⏽" }
-sign { "DiagnosticSignWarn", "⏽" }
-sign { "DiagnosticSignHint", "⏽" }
-sign { "DiagnosticSignInfo", "⏽" }
 
 vim.diagnostic.config {
     signs = true,
@@ -87,16 +124,12 @@ vim.diagnostic.config {
     },
 }
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover,
-    {
-        border = "rounded",
-    }
+sign({ "DiagnosticSignError", "⏽" }
+, { "DiagnosticSignWarn", "⏽" }
+, { "DiagnosticSignHint", "⏽" }
+, { "DiagnosticSignInfo", "⏽" }
 )
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help,
-    {
-        border = "rounded",
-    }
+handlers({ "textDocument/hover", "hover" }
+, { "textDocument/signatureHelp", "signature_help" }
 )
