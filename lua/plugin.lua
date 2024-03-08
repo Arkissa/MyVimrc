@@ -9,14 +9,12 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
---vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 vim.opt.rtp:prepend(lazypath)
 
 vim.keymap { k = "<leader>pl", v = ":Lazy<CR>" }
 
-local mods = {}
 local extend = ".lua"
-local path = _G.ENV["vimrc"] .. "/lua/plugins"
+local path = vim.g.vimrc .. "/lua/plugins"
 
 ---@param file string
 ---@return boolean
@@ -31,14 +29,19 @@ local function is_lua(file)
     return true
 end
 
-for file, type in vim.fs.dir(path) do
-    if type[1] == 'd' or not is_lua(file) then
-        goto continue
-    end
-    table.insert(mods, require("plugins." .. vim.fn.split(file, extend)[1]))
-    ::continue::
-end
+local mods = {}
+local ffi = require "ffi"
+local buffer = ffi.new("char[100]", "plugins.")
+for file, t in vim.fs.dir(path) do
+    if t:byte(1) == 102 and is_lua(file) then
+        local len = file:len() - 4
+        for i = 1, len do
+            buffer[7 + i] = file:byte(i)
+        end
 
+        table.insert(mods, require(ffi.string(buffer, 8 + len)))
+    end
+end
 
 require "lazy".setup(mods, {
     defaults = {
