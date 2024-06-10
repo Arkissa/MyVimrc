@@ -3,6 +3,7 @@
 ---@field on_attach? fun(client: any, bufnr: integer)
 ---@field opt table
 ---@field auto_format? boolean
+---@field async_autoformat? boolean
 
 local lsp = require "lsp-zero".preset {}
 lsp.set_server_config {
@@ -38,6 +39,12 @@ require "lspsaga".setup {
     ui = {
         border = "rounded",
         code_action = "",
+    },
+    implement = {
+        enable = true,
+        sign = true,
+        virtual_text = true,
+        priority = 100,
     }
 }
 
@@ -49,7 +56,7 @@ return function(config)
         local opts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap({ k = "ss", v = "<cmd>Lspsaga peek_definition<CR>", opt = opts }
         , { k = "sd", v = "<cmd>Lspsaga goto_definition<CR>", opt = opts }
-        , { k = "sk", v = vim.lsp.buf.hover, opt = opts }
+        , { k = "gk", v = "<cmd>Lspsaga hover_doc<CR>", opt = opts }
         , { k = "sf", v = "<cmd>Lspsaga finder<CR>", opt = opts }
         , { k = "sr", v = "<cmd>Lspsaga rename<CR>", opt = opts }
         , { k = "sa", v = "<cmd>Lspsaga code_action<CR>", opt = opts }
@@ -57,7 +64,7 @@ return function(config)
         , { k = "<leader>=", v = "<cmd>Lspsaga diagnostic_jump_next<cr>", opt = opts }
         , { k = "<leader>-", v = "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt = opts }
         , { k = "<leader>m", v = "<cmd>Lspsaga outline<CR>", opt = opts }
-        , { k = "sg", v = "<cmd>Lspsaga term_toggle<CR>", opt = opts }
+        -- , { k = "sg", v = "<cmd>Lspsaga term_toggle<CR>", opt = opts }
         , { k = "<A-r>", v = "<cmd>nohlsearch<CR>", opt = opts }
         )
         require 'lsp_signature'.on_attach({
@@ -69,7 +76,9 @@ return function(config)
 
         require "illuminate".on_attach(client)
         if config.auto_format then
-            lsp.buffer_autoformat()
+            lsp.buffer_autoformat(client, bufnr)
+        elseif config.async_autoformat then
+            lsp.async_autoformat(client, bufnr)
         end
 
         if config.on_attach then

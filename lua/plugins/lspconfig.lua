@@ -1,7 +1,7 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
-    ft = { "go", "gomod", "json", "python", "c", "cpp", "h", "lua" },
+    ft = { "go", "gomod", "json", "python", "c", "cpp", "h", "lua", "haskell" },
     dependencies = {
         "neovim/nvim-lspconfig",
         "RRethy/vim-illuminate",

@@ -3,7 +3,7 @@ require "lsp" {
     auto_format = true,
     opt = {
         init_options = {
-            fallbackFlags = { "-xc" },
+            fallbackFlags = { "-xc", "-std=gnu2x", "-Wall" },
         },
         cmd = { "clangd"
         , "--enable-config"

@@ -6,7 +6,7 @@ return {
             flavour = "macchiato",      -- latte, frappe, macchiato, mocha
             transparent_background = false,
             show_end_of_buffer = false, -- show the '~' characters after the end of buffers
-            term_colors = false,
+            term_colors = true,
             dim_inactive = {
                 enabled = true,
                 shade = "dark",
@@ -17,15 +17,15 @@ return {
             styles = {
                 comments = { "italic" },
                 conditionals = { "italic" },
-                loops = { "bold" },
-                functions = { "italic" },
-                keywords = { "bold" },
-                strings = { "italic" },
-                variables = { "bold" },
-                numbers = { "bold" },
+                loops = { "italic" },
+                functions = {},
+                keywords = { "italic" },
+                strings = {},
+                variables = {},
+                numbers = {},
                 booleans = { "italic" },
                 properties = {},
-                types = { "bold" },
+                types = { "bold", "italic" },
                 operators = {},
             },
             color_overrides = {},

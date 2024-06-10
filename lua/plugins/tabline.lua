@@ -2,30 +2,38 @@ return {
     'akinsho/bufferline.nvim',
     lazy = false,
     version = "*",
-
     opts = {
         options = {
-            mode = "tabs",
             diagnostics = "nvim_lsp",
             diagnostics_indicator = function(count, level, _, _)
                 local icon = level:match("error") and " " or " "
                 return " " .. icon .. count
             end,
-            indicator = {
-                icon = '▎', -- this should be omitted if indicator style is not 'icon'
-                -- style = 'icon' | 'underline' | 'none',
-                style = "icon",
+            -- indicator = {
+            --     icon = '█', -- this should be omitted if indicator style is not 'icon'
+            --     style = "icon",
+            -- },
+            offsets = {
+                {
+                    filetype = "neo-tree",
+                    text = " File Explorer",
+                    text_align = "center",
+                    highlight = "Directory",
+                    separator = true
+                }
             },
-            show_buffer_close_icons = false,
-            show_close_icon = false,
-            enforce_regular_tabs = true,
-            show_duplicate_prefix = false,
-            tab_size = 16,
+            color_icons = true,
+            show_buffer_close_icons = true,
+            show_close_icon = true,
+            tab_size = 25,
             padding = 0,
-            separator_style = "thick",
+        },
+        highlights = {
+            tab_separator_selected = {
+                bg = "#8AADF5",
+                underline = true,
+            }
         }
     },
-    config = function()
-        require "bufferline".setup {}
-    end
+    config = true
 }

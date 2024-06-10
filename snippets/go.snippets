@@ -61,3 +61,18 @@ snippet ifif "if else if"
 	} else if ${2} {
 		${0://TODO}
 	} ${4}
+
+snippet iferr "if err"
+    if ${1:err} != ${2:nil} {
+        ${3:// TODO}
+    }${0}
+
+snippet lambda
+	func(${2:n} ${3:type}) {
+		${0}
+	}(${2})
+
+snippet go
+	go func() {
+		${0}
+	}()

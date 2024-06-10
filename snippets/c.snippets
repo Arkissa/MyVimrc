@@ -1,13 +1,14 @@
 snippet main "main"
-	int
-	main(int argc, char* argv[])
+	int main(int argc, char* argv[])
 	{
 		${1://TODO}
 	}
 
 snippet func "function"
-	${2:void}
-	${1:name}(${3:})
+	${2:void} ${1:name}(${3:})
 	{
 		${0://TODO}
 	}
+
+snippet def "define func"
+	${2:void} ${1:name}(${3:});

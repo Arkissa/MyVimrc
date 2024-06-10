@@ -1,5 +1,6 @@
 return {
     'hrsh7th/nvim-cmp',
+    lazy = false,
     dependencies = {
         'dcampos/nvim-snippy',
         'dcampos/cmp-snippy',
@@ -44,53 +45,30 @@ return {
         }
 
         local icon = {
-            ---@type string
-            Text = "",
-            ---@type string
+            Text = "󰉿",
             Method = "󰆧",
-            ---@type string
             Function = "󰊕",
-            ---@type string
-            Constructor = "",
-            ---@type string
-            Field = "󰇽", ---@type string
-            Variable = "󰂡",
-            ---@type string
+            Constructor = "",
+            Field = "󰜢",
+            Variable = "󰫧",
             Class = "󰠱",
             Interface = "",
-            ---@type string
             Module = "",
-            ---@type string
             Property = "󰜢",
-            ---@type string
-            Unit = "",
-            ---@type string
+            Unit = "󰑭",
             Value = "󰎠",
-            ---@type string
             Enum = "",
-            ---@type string
             Keyword = "󰌋",
-            ---@type string
             Snippet = "",
-            ---@type string
             Color = "󰏘",
-            ---@type string
             File = "󰈙",
-            ---@type string
-            Reference = "",
-            ---@type string
+            Reference = "󰈇",
             Folder = "󰉋",
-            ---@type string
             EnumMember = "",
-            ---@type string
             Constant = "󰏿",
-            ---@type string
-            Struct = "",
-            ---@type string
+            Struct = "󰙅",
             Event = "",
-            ---@type string
             Operator = "󰆕",
-            ---@type string
             TypeParameter = "󰅲",
         }
 
@@ -143,6 +121,7 @@ return {
                         nvim_lsp = "[LSP]",
                         buffer = "[Buf]",
                         path = "[Path]",
+                        ["agda-symbols"] = "[Symbol]",
                     })[entry.source.name]
                     return vim_item
                 end,
@@ -176,7 +155,7 @@ return {
                 }
             })
         })
-        cmp.setup.filetype({ "agda", "haskell" }, {
+        cmp.setup.filetype({ "agda" }, {
             sources = {
                 { name = 'agda-symbols' },
             }

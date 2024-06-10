@@ -1,5 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.keymap { k = "<leader>pl", v = ":Lazy<CR>" }
+vim.keymap.set("n", "<leader>pl", "<CMD>Lazy<CR>", nil)
 
 local extend = ".lua"
 local path = vim.g.vimrc .. "/lua/plugins"

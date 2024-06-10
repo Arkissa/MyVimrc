@@ -4,7 +4,9 @@ return {
     config = function()
         require 'hlchunk'.setup {
             indent = {
+                enable = true,
                 chars = { "│", "¦", "┆", "┊", },
+                use_treesitter = true,
                 style = {
                     vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
                 },
