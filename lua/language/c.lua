@@ -1,6 +1,6 @@
 require "lsp" {
     lsp = "clangd",
-    auto_format = true,
+    -- auto_format = true,
     opt = {
         init_options = {
             fallbackFlags = { "-xc", "-std=gnu2x", "-Wall" },

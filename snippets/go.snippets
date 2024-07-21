@@ -8,22 +8,17 @@ snippet fori "for int loop"
 		${0:${//TODO}}
 	}
 
-snippet forr "for range"
-    for ${2:k}, ${3:v} := range ${1:target} {
-        ${0://TODO}
-    }
-
 snippet fm "method"
-	func (${2}${1:obj}) ${3:method}(${4}) ${5} {
+	func (${1:obj}) ${2:method}(${3}) ${4} {
 		${0://TODO}
 	}
 
-snippet func "function"
+snippet fn "function"
 	func ${1:name}(${2}) ${3} {
 		${0://TODO}
 	}
 
-snippet funcg "function with generics"
+snippet fng "function with generics"
 	func ${1:name}[T ${2:any}](${3}) ${4} {
 		${0://TODO}
 	}
@@ -38,15 +33,15 @@ snippet go "go func"
 		${1://TODO}
 	}()
 
-snippet ifn "if local var"
-	if ${2} := ${1}; $2 {
-		${0://TODO}
-	}
-
 snippet if "if"
 	if ${1} {
 		${0://TODO}
 	} ${2}
+
+snippet ifv "if local var"
+	if ${2} := ${1}; $2 {
+		${0://TODO}
+	}
 
 snippet ifel "if else"
 	if ${1} {
@@ -76,3 +71,8 @@ snippet go
 	go func() {
 		${0}
 	}()
+
+snippet testt
+	func Test${1:Name}(t *testing.T) {
+		${0}
+	}

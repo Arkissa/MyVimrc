@@ -3,35 +3,15 @@ return {
     lazy = false,
     config = function()
         require 'gitsigns'.setup {
-            signs = {
-                add          = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-                change       = {
-                    hl = 'GitSignsChange',
-                    text = '░',
-                    numhl = 'GitSignsChangeNr',
-                    linehl = 'GitSignsChangeLn'
-                },
-                delete       = {
-                    hl = 'GitSignsDelete',
-                    text = '_',
-                    numhl = 'GitSignsDeleteNr',
-                    linehl = 'GitSignsDeleteLn'
-                },
-                topdelete    = {
-                    hl = 'GitSignsDelete',
-                    text = '▔',
-                    numhl = 'GitSignsDeleteNr',
-                    linehl = 'GitSignsDeleteLn'
-                },
-                changedelete = {
-                    hl = 'GitSignsChange',
-                    text = '▒',
-                    numhl = 'GitSignsChangeNr',
-                    linehl = 'GitSignsChangeLn'
-                },
-                untracked    = { hl = 'GitSignsAdd', text = '┆', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+            current_line_blame      = true,
+            current_line_blame_opts = {
+                virt_text = true,
+                virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+                delay = 100,
+                ignore_whitespace = true,
+                virt_text_priority = 100,
             },
-            on_attach = function(bufnr)
+            on_attach               = function(bufnr)
                 local gs = package.loaded.gitsigns
 
                 local function map(mode, l, r, opts)

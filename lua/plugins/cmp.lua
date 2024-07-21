@@ -1,6 +1,5 @@
 return {
     'hrsh7th/nvim-cmp',
-    lazy = false,
     dependencies = {
         'dcampos/nvim-snippy',
         'dcampos/cmp-snippy',

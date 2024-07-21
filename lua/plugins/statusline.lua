@@ -150,7 +150,7 @@ return {
         ins_right {
             -- Lsp server name .
             function()
-                local clients = vim.lsp.get_active_clients()
+                local clients = vim.lsp.get_clients()
                 for _, client in ipairs(clients) do
                     return client.name
                 end

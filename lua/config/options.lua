@@ -47,6 +47,7 @@ vim.opt {
     ttimeoutlen = 100,
     updatetime = 100,
     termguicolors = true,
+    sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize',
 }
 
 vim.g {
@@ -78,7 +79,7 @@ vim.g {
         "pyright",
         "clangd",
         "bashls",
-        "hls",
+        "yamlls",
     },
     -- ---@type string
     vimrc = vim.fn.stdpath("config"),
@@ -127,6 +128,7 @@ vim.g {
         "html",
         "css",
         "sql",
+        "typst",
         "markdown",
         "markdown_inline",
     }
@@ -136,19 +138,9 @@ vim.opt.shortmess:append "c"
 vim.cmd.filetype('plugin', 'indent', 'on')
 
 vim.diagnostic.config {
-    signs = true,
-    update_in_insert = true,
-    underline = true,
+    -- update_in_insert = true,
     severity_sort = true,
-    float = {
-        focusable = true,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        prefix = "WARNING: ",
-    },
 }
-
 sign({ "DiagnosticSignError", "⏽" }
 , { "DiagnosticSignWarn", "⏽" }
 , { "DiagnosticSignHint", "⏽" }

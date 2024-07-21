@@ -9,7 +9,6 @@ require "lsp" {
             gopls = {
                 analyses = {
                     unusedparams = true,
-                    shadow = true,
                 },
                 staticcheck = true,
             },

@@ -15,7 +15,7 @@ require "lspsaga".setup {
         sign = true,
         virtual_text = true,
         priority = 100,
-    }
+    },
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -30,15 +30,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
-local bufnr = vim.api.nvim_get_current_buf()
-require 'lsp_signature'.on_attach({
-    bind = true,
-    handler_opts = {
-        border = "rounded"
-    }
-}, bufnr)
-
-local opts = { noremap = true, silent = true, buffer = bufnr }
+local opts = { noremap = true, silent = true, buffer = vim.api.nvim_get_current_buf() }
 vim.keymap.set("n", "<LEADER>cl", vim.lsp.codelens.run, opts)
 vim.keymap.set("n", "<LEADER>hs", ht.hoogle.hoogle_signature, opts)
 vim.keymap.set("n", "<LEADER>ea", ht.lsp.buf_eval_all, opts)
