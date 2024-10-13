@@ -74,7 +74,7 @@ return function(config)
             }
         }, bufnr)
 
-        require "illuminate".on_attach(client)
+        -- require "illuminate".on_attach(client)
         if config.auto_format then
             lsp.buffer_autoformat(client, bufnr)
         elseif config.async_autoformat then

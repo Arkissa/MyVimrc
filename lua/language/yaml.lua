@@ -7,7 +7,6 @@
 
 require "lsp" {
     lsp = "yamlls",
-    auto_format = true,
     on_attach = function(client)
         client.server_capabilities.documentFormattingProvider = true
     end,

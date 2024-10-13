@@ -18,18 +18,6 @@ require "lspsaga".setup {
     },
 }
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    callback = function(args)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = args.buf,
-            callback = function()
-                vim.lsp.buf.format { async = false, id = args.data.client_id }
-            end,
-        })
-    end
-})
-
 local opts = { noremap = true, silent = true, buffer = vim.api.nvim_get_current_buf() }
 vim.keymap.set("n", "<LEADER>cl", vim.lsp.codelens.run, opts)
 vim.keymap.set("n", "<LEADER>hs", ht.hoogle.hoogle_signature, opts)
