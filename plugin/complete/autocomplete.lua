@@ -56,12 +56,12 @@ autocmd("InsertCharPre", {
             return
         end
 
-        if vim.opt.omnifunc:get() == "" then
-            feedkeys(shorcut.keyword, "im", false)
+        if char:match("[^%w.]") then
             return
         end
 
-        if char:match("[^%w.]") then
+        if vim.opt.omnifunc:get() == "" then
+            feedkeys(shorcut.keyword, "im", false)
             return
         end
 

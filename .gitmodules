@@ -19,3 +19,6 @@
 [submodule "pack/lualine/start/lualine"]
 	path = pack/lualine/start/lualine
 	url = https://github.com/nvim-lualine/lualine.nvim
+[submodule "pack/git/start/gitsigns.nvim"]
+	path = pack/git/start/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim
