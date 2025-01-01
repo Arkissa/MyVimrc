@@ -61,7 +61,8 @@ autocmd("InsertCharPre", {
         end
 
         if vim.opt.omnifunc:get() == "" then
-            feedkeys(shorcut.keyword, "im", false)
+			-- 搜索的内容太多，太卡了
+            -- feedkeys(shorcut.keyword, "im", false)
             return
         end
 
