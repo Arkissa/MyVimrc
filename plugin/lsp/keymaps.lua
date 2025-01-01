@@ -10,7 +10,7 @@ del("n", "gO")
 del("s", "<C-S>")
 
 local function hover()
-    vim.lsp.buf.hover { border = 'rounded' }
+	vim.lsp.buf.hover { border = 'rounded' }
 end
 
 local function inject_keymap(client, bufnr)
