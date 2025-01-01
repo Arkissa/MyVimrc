@@ -1,0 +1,21 @@
+[submodule "pack/git/start/vim-fugitive"]
+	path = pack/git/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "pack/git/start/vim-rhubarb"]
+	path = pack/git/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
+[submodule "pack/catppuccin/start/catppuccin"]
+	path = pack/catppuccin/start/catppuccin
+	url = https://github.com/catppuccin/nvim
+[submodule "pack/quickfix/start/quicker"]
+	path = pack/quickfix/start/quicker
+	url = https://github.com/stevearc/quicker.nvim
+[submodule "pack/lsp/start/nvim-lspconfig"]
+	path = pack/lsp/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "pack/treesitter/start/nvim-treesitter"]
+	path = pack/treesitter/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "pack/lualine/start/lualine"]
+	path = pack/lualine/start/lualine
+	url = https://github.com/nvim-lualine/lualine.nvim
