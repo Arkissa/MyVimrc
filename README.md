@@ -4,9 +4,9 @@
 > Anything will be done without leaving vim!
 
 ## Required
-- [nvim >= 0.11](https://github.com/neovim/neovim/releases)
+- [nvim](https://github.com/neovim/neovim/releases) >= 0.11
 - [git](https://git-scm.com/downloads)
-- [tree-sitter latest](https://github.com/tree-sitter/tree-sitter/releases)
+- [tree-sitter](https://github.com/tree-sitter/tree-sitter/releases) latest
 
 ## Install
 ```bash
