@@ -1,5 +1,5 @@
 local function has(server)
-	if not vim.fn.executable(server) then
+	if vim.fn.executable(server) == 0 then
 		return function() end
 	end
 
