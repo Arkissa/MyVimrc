@@ -8,7 +8,7 @@
 - [git](https://git-scm.com/downloads)
 - [tree-sitter latest](https://github.com/tree-sitter/tree-sitter/releases)
 
-## Init
+## Install
 ```bash
 git clone --recurse-submodules -b v3 git@github.com:Arkissa/nvim.git ~/.config/nvim
 nvim --cmd "helptags ALL"
