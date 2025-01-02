@@ -1,9 +1,9 @@
-local opt = { silent = true }
+local opt = { silent = true, nowait = true }
 
 vim.keymap.set("n", "zk", "ZZ", opt)
 vim.keymap.set("n", "sr", ":source $MYVIMRC<CR>", opt)
 vim.keymap.set("v", "<C-c>", [["+y]], opt)
-vim.keymap.set({ "n", "i" }, "<C-s>v", [["+p]], opt)
+vim.keymap.set({ "n", "i" }, "<S-C-v>", [["+p]], opt)
 vim.keymap.set("v", ">", ">gv", opt)
 vim.keymap.set("v", "<", "<gv", opt)
 vim.keymap.set("v", "p", '"_dP', opt)
