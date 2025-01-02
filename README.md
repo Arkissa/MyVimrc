@@ -27,4 +27,4 @@ nvim --cmd "helptags ALL"
 - [ ] Better buil-in formatter.
 - [ ] Better code action.
 - [ ] Better engineering support for different programming language e.g code generator and lint.
-- [ ] ~Make snippets of code~ Postpone neovim not yet ready.
+- [ ] ~Make snippets of code~ Postponed this the neovim not yet ready.
