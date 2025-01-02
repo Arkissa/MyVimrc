@@ -19,3 +19,6 @@
 [submodule "pack/git/start/gitsigns.nvim"]
 	path = pack/git/start/gitsigns.nvim
 	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "pack/explorer/start/oil"]
+	path = pack/explorer/start/oil
+	url = https://github.com/stevearc/oil.nvim
