@@ -109,6 +109,29 @@ ins_left {
 }
 
 ins_left {
+	function()
+		local msg = 'No Active Lsp'
+		local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+		local clients = vim.lsp.get_clients()
+		if next(clients) == nil then
+			return msg
+		end
+		for _, client in ipairs(clients) do
+			---@diagnostic disable-next-line: undefined-field
+			if vim.tbl_contains(client.config.filetypes, buf_ft) then
+				return client.name
+			end
+		end
+		return msg
+	end,
+	icon = ' LSP:',
+	color = {
+		fg = colors.lavender,
+		gui = 'bold',
+	},
+}
+
+ins_left {
 	'branch',
 	icon = '',
 	color = {
@@ -135,29 +158,6 @@ ins_left {
 		error = { fg = colors.red },
 		warn = { fg = colors.yellow },
 		info = { fg = colors.cyan },
-	},
-}
-
-ins_left {
-	function()
-		local msg = 'No Active Lsp'
-		local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
-		local clients = vim.lsp.get_clients()
-		if next(clients) == nil then
-			return msg
-		end
-		for _, client in ipairs(clients) do
-			---@diagnostic disable-next-line: undefined-field
-			if vim.tbl_contains(client.config.filetypes, buf_ft) then
-				return client.name
-			end
-		end
-		return msg
-	end,
-	icon = ' LSP:',
-	color = {
-		fg = colors.lavender,
-		gui = 'bold',
 	},
 }
 
