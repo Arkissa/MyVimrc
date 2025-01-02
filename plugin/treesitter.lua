@@ -31,6 +31,7 @@ require 'nvim-treesitter.configs'.setup {
 		"sql",
 		"json",
 		"bash",
+		"gitcommit",
 	},
 
 	sync_install = false,
