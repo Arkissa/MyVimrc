@@ -15,6 +15,8 @@ nvim --cmd "helptags ALL"
 ```
 
 ## TODO
+- [x] Basic option, keymaps, lsp-keymaps, autocmd
+- [x] Automatic completion for lsp-code, path, keyword
 - [ ] Automatic to init for my neovim config
 - [ ] Make snippets of code
 - [ ] Quick fuzzy find files and word in current project on quickfix
