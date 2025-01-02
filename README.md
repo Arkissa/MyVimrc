@@ -10,17 +10,17 @@ nvim --cmd "helptags ALL"
 ```
 
 # TODO
-- [] Automatic to init for my neovim config
-- [] Make snippets of code
-- [] Quick fuzzy find files and word in current project on quickfix
-- [] Support zettelkasten for vimwiki
-- [] Better textobject
-- [] Better buil-in terminal
-- [] Better buil-in indent
-- [] Better buil-in compiler
-- [] Better buil-in formatter
-- [] Better code action
-- [] Better engineering support for different programming language e.g code generator and lint
+- [ ] Automatic to init for my neovim config
+- [ ] Make snippets of code
+- [ ] Quick fuzzy find files and word in current project on quickfix
+- [ ] Support zettelkasten for vimwiki
+- [ ] Better textobject
+- [ ] Better buil-in terminal
+- [ ] Better buil-in indent
+- [ ] Better buil-in compiler
+- [ ] Better buil-in formatter
+- [ ] Better code action
+- [ ] Better engineering support for different programming language e.g code generator and lint
 
 # Ultimate Goal
 > [!NOTE]
