@@ -22,3 +22,6 @@
 [submodule "pack/explorer/start/oil"]
 	path = pack/explorer/start/oil
 	url = https://github.com/stevearc/oil.nvim
+[submodule "pack/themes/start/nvim-web-devicons"]
+	path = pack/themes/start/nvim-web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons
