@@ -4,9 +4,9 @@
 > Anything will be done without leaving vim!
 
 ## Required
-- [nvim](https://github.com/neovim/neovim/releases) >= 0.11
+- [nvim >= 0.11](https://github.com/neovim/neovim/releases)
 - [git](https://git-scm.com/downloads)
-- [tree-sitter](https://github.com/tree-sitter/tree-sitter/releases) latest
+- [tree-sitter](https://github.com/tree-sitter/tree-sitter/releases)
 
 ## Install
 ```bash
@@ -20,6 +20,7 @@ nvim --cmd "helptags ALL"
 - [ ] Quick fuzzy find files and word in current project on quickfix.
 - [ ] Support zettelkasten for vimwiki.
 - [ ] Automatic to init for my neovim config.
+- [ ] Better gitsubmodule install and remove plugin.
 - [ ] Better textobject.
 - [ ] Better buil-in terminal.
 - [ ] Better buil-in indent.
