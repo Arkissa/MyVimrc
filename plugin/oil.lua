@@ -1,8 +1,7 @@
 require "oil".setup {
 	columns = {
-		"permissions",
-		"size",
 		"mtime",
+		"size",
 		"icon",
 	},
 	keymaps = {

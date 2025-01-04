@@ -9,6 +9,7 @@ opt.autoindent = true
 opt.smartindent = true
 opt.undofile = true
 opt.ruler = false
+opt.spell = true
 opt.cursorline = true
 opt.autowrite = true
 opt.fillchars = {
