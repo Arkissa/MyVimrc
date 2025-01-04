@@ -20,7 +20,6 @@ opt.list = true
 opt.showbreak = "↪ "
 opt.listchars = {
 	tab = '» ',
-	trail = "∙",
 	precedes = "«",
 }
 opt.shiftwidth = 4
@@ -33,6 +32,7 @@ opt.smartcase = true
 opt.ignorecase = true
 opt.wildmenu = true
 opt.mouse = ""
-opt.shortmess:append "c"
+opt.shortmess:append "c" 
+vim.fn.matchadd("Search", [[\s\+$]])
 
 g.mapleader = k'<SPACE>'
