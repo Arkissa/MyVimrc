@@ -1,6 +1,6 @@
 ## Ultimate Goal
 > [!NOTE]
-> 
+>
 > Anything will be done without leaving vim!
 
 ## Required
