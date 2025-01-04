@@ -18,7 +18,7 @@ nvim --cmd "helptags ALL"
 - [x] Basic option, keymaps, lsp-keymaps, autocmd.
 - [x] Automatic completion for lsp-code, path, keyword.
 - [ ] Quick fuzzy find files and word in current project on quickfix.
-- [ ] Extend Support for Zettelkasten and better Todo in Markdown.
+- [ ] Extended Support for Better Todo and Zettelkasten in Markdown
 - [ ] Automatic to init for my neovim config.
 - [ ] Better gitsubmodule install and remove plugin.
 - [ ] Better textobject.
