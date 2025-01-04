@@ -16,7 +16,7 @@ autocmd("BufReadPost", {
 	end
 })
 
-vim.api.nvim_create_autocmd('TextYankPost', {
+autocmd('TextYankPost', {
 	group = myvimrc,
 	callback = function()
 		vim.hl.on_yank()
