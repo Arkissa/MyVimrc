@@ -3,3 +3,15 @@ MYVIMRC
 keymap
 bdelete
 config
+Zetdomd
+keymaps
+lsp
+autocmd
+TODO
+Zettelkasten
+quickfix
+neovim
+init
+gitsubmodule
+textobject
+nvim

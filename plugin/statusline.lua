@@ -97,12 +97,6 @@ ins_left {
 }
 
 ins_left {
-	'filename',
-	cond = conditions.buffer_not_empty,
-	color = { fg = colors.lavender, gui = 'bold' },
-}
-
-ins_left {
 	'filesize',
 	cond = conditions.buffer_not_empty,
 	color = { fg = colors.lavender, gui = 'bold' },
@@ -159,6 +153,18 @@ ins_left {
 		warn = { fg = colors.yellow },
 		info = { fg = colors.cyan },
 	},
+}
+
+ins_left {
+	function()
+		return '%='
+	end,
+}
+
+ins_left {
+	'filename',
+	cond = conditions.buffer_not_empty,
+	color = { fg = colors.lavender, gui = 'bold' },
 }
 
 ins_right { 'location' }
