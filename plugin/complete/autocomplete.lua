@@ -46,7 +46,7 @@ autocmd("InsertCharPre", {
 	group = auto_completion,
 	desc = 'autcomplete path',
 	callback = function()
-		if vim.opt.filetype():get() == "oil"
+		if vim.opt.filetype:get() == "oil"
 			or pumvisible() == 1
 			or vim.fn.state 'm' == 'm'
 		then
@@ -64,11 +64,11 @@ autocmd("InsertCharPre", {
 		end
 
 		if vim.opt.omnifunc:get() == "" then
-			feedkeys(shorcut.keyword, "m", false)
+			feedkeys(shorcut.keyword, "im", false)
 			return
 		end
 
-		feedkeys(shorcut.omnifunc, "m", false)
+		feedkeys(shorcut.omnifunc, "im", false)
 	end
 })
 
