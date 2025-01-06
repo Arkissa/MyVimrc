@@ -18,14 +18,14 @@ nvim --cmd "helptags ALL"
 - [x] Basic option, keymaps, lsp-keymaps, autocmd.
 - [x] Automatic completion for lsp-code, path, keyword.
 - [ ] Quick fuzzy find files and word in current project on quickfix.
-- [ ] Extended Support for Better Todo and Zettelkasten in Markdown
+- [ ] Extended Support for Better TODO and Zettelkasten in Markdown
 - [ ] Automatic to init for my neovim config.
 - [ ] Better gitsubmodule install and remove plugin.
 - [ ] Better textobject.
-- [ ] Better buil-in terminal.
-- [ ] Better buil-in indent.
-- [ ] Better buil-in compiler.
-- [ ] Better buil-in formatter.
+- [ ] Better built-in terminal.
+- [ ] Better built-in indent.
+- [ ] Better built-in compiler.
+- [ ] Better built-in formatter.
 - [ ] Better code action.
 - [ ] Better engineering support for different programming language e.g code generator and lint.
 - [ ] ~Make snippets of code~ Postponed this the neovim not yet ready.
