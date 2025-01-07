@@ -9,7 +9,8 @@ opt.autoindent = true
 opt.smartindent = true
 opt.undofile = true
 opt.ruler = false
-vim.opt.spell = true
+opt.spell = true
+opt.spelllang:append "cjk"
 opt.cursorline = true
 opt.autowrite = true
 opt.fillchars = {
