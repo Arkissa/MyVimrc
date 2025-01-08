@@ -46,6 +46,7 @@ vim.opt.wildignore:append {
 	'*.hi',
 	'.DS_Store',
 	'**/.git/**',
+	'**/pack/**'
 }
 
 vim.fn.matchadd("Search", [[\s\+$]])
