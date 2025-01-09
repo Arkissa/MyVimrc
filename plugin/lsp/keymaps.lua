@@ -37,7 +37,7 @@ local function inject_keymap(client, bufnr)
 	end
 
 	if client:supports_method(methods.textDocument_references) then
-		set("n", "gR", vim.lsp.buf.references, opts)
+		set("n", "[I", vim.lsp.buf.references, opts)
 	end
 
 	if client:supports_method(methods.textDocument_implementation) then

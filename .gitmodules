@@ -25,3 +25,6 @@
 [submodule "pack/themes/start/nvim-web-devicons"]
 	path = pack/themes/start/nvim-web-devicons
 	url = https://github.com/nvim-tree/nvim-web-devicons
+[submodule "pack/make/start/vim-dispatch"]
+	path = pack/make/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
