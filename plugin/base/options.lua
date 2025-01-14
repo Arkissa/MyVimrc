@@ -20,8 +20,8 @@ opt.fillchars = {
 opt.list = true
 opt.showbreak = "↪ "
 opt.listchars = {
-	tab = '» ',
-	precedes = "«",
+	tab = '› ',
+	trail = '·',
 }
 opt.shiftwidth = 4
 opt.softtabstop = 4
@@ -47,7 +47,5 @@ vim.opt.wildignore:append {
 	'**/.git/**',
 	'**/pack/**'
 }
-
-vim.fn.matchadd("Search", [[\s\+$]])
 
 g.mapleader = k'<SPACE>'
