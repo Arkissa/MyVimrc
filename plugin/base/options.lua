@@ -46,7 +46,7 @@ vim.opt.wildignore:append {
 	'.DS_Store',
 	'**/.git/**',
 	'**/pack/**',
-	'**/bin/**'
+	'**/bin/**',
 }
 
 g.mapleader = k'<SPACE>'
