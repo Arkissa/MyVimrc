@@ -34,5 +34,19 @@ opt.ignorecase = true
 opt.wildmenu = true
 opt.mouse = ""
 opt.shortmess:append "c"
+vim.opt.wildignore:append {
+	'*.o',
+	'**/dist-newstyle/**',
+	'*.ibc',
+	'*.pyc',
+	'__pycache__',
+	'node_modules/',
+	'*.a',
+	'*.hi',
+	'.DS_Store',
+	'**/.git/**',
+	'**/pack/**',
+	'**/bin/**'
+}
 
 g.mapleader = k'<SPACE>'
