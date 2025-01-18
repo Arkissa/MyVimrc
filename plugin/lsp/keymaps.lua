@@ -1,16 +1,12 @@
 local set = vim.keymap.set
-local del = vim.keymap.del
 local methods = vim.lsp.protocol.Methods
-
-del("n", "grn")
-del("n", "grr")
-del("n", "gri")
-del({"n", "x"}, "gra")
-del("n", "gO")
-del("s", "<C-S>")
 
 local function hover()
 	vim.lsp.buf.hover { border = 'rounded', max_height = 30, max_width = 60 }
+end
+
+local function signture_help()
+	vim.lsp.buf.signature_help {border = 'rounded', max_width = 60}
 end
 
 local function inject_keymap(client, bufnr)
@@ -27,11 +23,6 @@ local function inject_keymap(client, bufnr)
 		set({"n", "x"}, "ga", vim.lsp.buf.code_action, opts)
 	end
 
-	if client:supports_method(methods.textDocument_definition) then
-		set("n", "gd", vim.lsp.buf.definition, opts)
-	end
-
-
 	if client:supports_method(methods.textDocument_typeDefinition) then
 		set("n", "gD", vim.lsp.buf.type_definition, opts)
 	end
@@ -44,8 +35,8 @@ local function inject_keymap(client, bufnr)
 		set("n", "gi", vim.lsp.buf.implementation, opts)
 	end
 
-	if client:supports_method(methods.textDocument_documentSymbol) then
-		set("n", "go", vim.lsp.buf.document_symbol, opts)
+	if client:supports_method(methods.textDocument_signatureHelp) then
+		set("i", "<C-s>", signture_help, opts)
 	end
 end
 

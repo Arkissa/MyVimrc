@@ -21,10 +21,5 @@ vim.diagnostic.config {
 	},
 }
 
-vim.keymap.del('n', '[d')
-vim.keymap.del('n', ']d')
-vim.keymap.del('n', '[D')
-vim.keymap.del('n', ']D')
-
 vim.keymap.set('n', '[e', function() vim.diagnostic.jump { count = -1, float = true } end)
 vim.keymap.set('n', ']e', function() vim.diagnostic.jump { count = 1, float = true } end)
