@@ -16,9 +16,9 @@ require "quicker".setup{
 		},
 	},
 	highlight = {
-		treesitter = true,
 		lsp = true,
-		load_buffers = true,
+		-- treesitter = true,
+		-- load_buffers = true,
 	},
 	edit = {
 		enabled = true,
