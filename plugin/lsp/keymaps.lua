@@ -26,7 +26,7 @@ local function attach_keymaps(client, bufnr)
 	end
 
 	if client:supports_method(methods.textDocument_references) then
-		set("n", "[I", vim.lsp.buf.references, opts)
+		set("n", "g]", vim.lsp.buf.references, opts)
 	end
 
 	if client:supports_method(methods.textDocument_implementation) then
