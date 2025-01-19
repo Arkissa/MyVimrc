@@ -43,6 +43,7 @@ vim.opt.wildignore:append {
 	'node_modules/',
 	'*.a',
 	'*.hi',
+	'*.spl',
 	'.DS_Store',
 	'**/.git/**',
 	'**/pack/**',

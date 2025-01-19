@@ -1,4 +1,11 @@
--- STOP FUNCKING ADDING THESES TRASH ON MY KEYMAPS, FUCK YOU NEOVIM.
+--[[
+██████████████████████████████████████████████████
+███                                            ███
+███    STOP ADDING THIS TRASH TO MY KEYMAPS    ███
+███              FUCK YOU NEOVIM               ███
+███                                            ███
+██████████████████████████████████████████████████
+]]
 local del = vim.keymap.del
 
 del('n', '[d')
